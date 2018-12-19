@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container block">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="template-details">
+                <p class="template-block">
+                    <a href="{% url 'profile' username=image.profile.username %}">{{image.profile.username}}</a>
+                </p>
+                <img src="{{image.profile_image.url}}" alt="Image">
+                <ul class="list-inline template-block">
+                    <li class="list-inline template-item">
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                    </li>
+                </ul>
+                <ul class="list-inline template-list">
+                    <li class="list-inline template-item">
+                        <a href="{% url 'profile' username=image.profile.username %}">{{image.profile.username}}</a>
+                    </li>
+                    <li class="list-inline template-item">
+                        {{image.image_caption}}
+                    </li>
+                </ul>
+                <p class="template-list"> {{comment|length}} comments </p>
+                <hr>
+                <div class="comment">
+                    {% for comment in comment %}
+                    <div class="row">
+                        <div class="col-md-10">
+                            <ul class="list-inline template-list">
+                                <li class="list-inline template-item">
+                                    <a href="{% url 'profile' username=comment.user.username %}">{{comment.user.username}}</a>
+                                </li>
+                                <li class="list-inline template-item">
+                                    <p>{{comment.comment}} </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>No comments</h3>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form">
+                <form action="{% url 'solo_image' image_id=image.id %}" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-success" value="Update">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

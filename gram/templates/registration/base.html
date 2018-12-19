@@ -1,0 +1,41 @@
+{% load bootstrap4 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block head_favicon %}
+    <link rel="icon" type="image/jpg" href="/static/img/logo.png">
+    {% endblock head_favicon %}
+
+    {% if title %}
+    <title>{{title}}</title>
+    {% endif %}
+
+    {% block styles %}
+    {% bootstrap_css %}
+
+    <link rel="stylesheet" href="{% static 'css/registration.css'%}">
+    {% endblock %}
+
+    
+
+</head>
+
+<body>
+    {% block content %}
+    <!-- {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %} -->
+
+    {% endblock %}
+
+</body>
+
+</html>

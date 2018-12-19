@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container block">
+    <div class="row profile-edit">
+        <!-----Empty ------>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form">
+            <form action="{% url 'profile_edit' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-success" value="Update">
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}

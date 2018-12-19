@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ form.media }}
+<div class="container block">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row prof-section">
+                <div class="col-md-6 prof-image-section">
+                    {% if profile_details.profile_image %}
+                    <img src="{{profile_details.profile_image_url}}" alt="profile photo">
+                    {% else %}
+                    <img src="/static/img/placeholder.png" alt="no-profile-photo">
+                    {% endif %}
+                </div>
+                <div class="col-md-6 profile-user">
+                    <ul class="list-inline">
+                        <li class="list inline template-item">
+                            <div class="prof-name">
+                                {{ profile.username }}
+                            </div>
+                        </li>
+                        {% if profile.username == user.username %}
+                        <li class="list-inline template-item">
+                            <a href="{% url 'profile_edit' %}">Edit Profile</a>
+                        </li>
+                        <li class="list-inline template-item">
+                            <a data-toggle="modal" data-target="#settings"><i class="fas fa-cog"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="list-inline template-item">
+                            <a href="#" class="btn btn-primary">Follow</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline template-item">
+                            <span class="font-weight-bold">{{images|length}} </span> Posts
+                        </li>
+                        <li class="list-inline template-item">
+                            <span class="font-weight-bold">0 </span> Followers
+                        </li>
+                        <li class="list-inline template-item">
+                            <span class="font-weight-bold">0 </span> Following
+                        </li>
+                    </ul>
+                    <p>{{profile_details.bio|safe}}</p>
+                    {% if profile.username == user.username %}
+                    <p><a href="{% url 'image_upload' %}">Upload Image</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row profile-images">
+        {% for img in images %}
+        <div class="col-md-4 photos">
+            <img src="{{img.photo.cdn_url}}" alt="photo">
+        </div>
+        {% empty %}
+        <div class="col-md-12">
+            <h2>Upload photos</h2>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item text-center"><a href="{% url 'profile_edit' %}">Edit Profile</a></li>
+                    <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
+                    <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

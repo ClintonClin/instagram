@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container block">
+    <div class="row">
+        <div class="col-md-8">
+            {% for img in images %}
+            <div class="template-details">
+                <p class="template-block">
+                    <a href="{% url 'profile' username=img.profile.username %}">{{img.profile.username}}</a>
+                </p>
+                <img src="{{img.photo.cdn_url}}" alt="photo">
+                <ul class="list-inline template-block">
+                    <li class="list-inline template-item">
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                    </li>
+                    <li class="list-inline template-item">
+                        <a href="{% url 'solo_image' image_id=img.id %}"><i class="far fa-comment" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <ul class="list-inline template-list">
+                    <li class="list-inline template-item">
+                        <a href="{% url 'profile' username=img.profile.username %}">{{img.profile.username}}</a>
+                    </li>
+                    <li class="list-inline template-item">
+                        {% autoescape on %}
+                        <p>{{img.image_caption|safe}} </p>
+                        {% endautoescape %}
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% empty %}
+            <h2>Seems you have no images. Follow people and view their images. </h2>
+            {% endfor %}
+        </div>            
+    </div>
+</div>
+{% endblock %}

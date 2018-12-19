@@ -1,0 +1,56 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block head_favicon %}
+    <link rel="icon" type="image/jpg" href="/static/img/logo.png">
+    {% endblock head_favicon %}
+
+    {% if title %}
+    <title>Instagram - {{title}} </title>
+    {% else %}
+    <title> Instagram </title>
+    {% endif %}
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    {% endblock %}
+
+    <!-- {% block scripts %}
+    {% bootstrap_javascript %}
+    <script>
+        UPLOADCARE_PUBLIC_KEY = '70eefb8af9cac417a6f2';
+        UPLOADCARE_TABS = '';
+        UPLOADCARE_EFFECTS = 'crop,rotate,mirror,flip,enhance,sharp,blur,grayscale,invert';
+        UPLOADCARE_IMAGES_ONLY = true;
+    </script>
+
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+    <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+    <script>
+        uploadcare.registerTab('preview', uploadcareTabEffects)
+    </script>
+    {% endblock %} -->
+
+
+</head>
+
+<body>
+    {% block navbar %}
+    {% include 'navbar.html'%}
+    {% endblock %}
+
+    {% block content %}
+    <h1 class="text-center">Welcome to Instagram </h1>
+    {% endblock %}
+
+    
+</body>
+</html>
