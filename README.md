@@ -1,4 +1,4 @@
-# pinUP
+# Instagram clone
 This is an application that enables users to log in, upload photos, view the photos in their profile, search other users, follow them.
  They will be able to view their photos as well as like and comment on them.   
 
