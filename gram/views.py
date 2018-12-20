@@ -54,7 +54,7 @@ def confirm(request, uidb64, token):
         user.save()
         login(request, user)
 
-        return HttpResponse('Successful. Log into your account.')
+        return HttpResponse('Successful. Feel free to log into your account.')
 
     else:
         return HttpResponse('Invalid')
@@ -69,9 +69,11 @@ def profile(request, username):
         profile_details = Profile.filter_by_id(profile.id)
 
     image = Image.acquire_profile_image(profile.id)
+
+    photos = Image.objects.filter(profile=profile)
     title = f'@{profile.username} Instagram profile'
 
-    return render(request, 'profile/profile.html', {'title': title, 'profile': profile, 'profile-details': profile_details, 'image': image})
+    return render(request, 'profile/profile.html', {'title': title, 'profile': profile, 'profile-details': profile_details, 'image': image, 'photos': photos})
 
 
 @login_required(login_url='/accounts/login/')

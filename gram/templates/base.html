@@ -20,32 +20,17 @@
 
     {% block styles %}
     {% bootstrap_css %}
+    
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css'%}">
     {% endblock %}
-
-    <!-- {% block scripts %}
-    {% bootstrap_javascript %}
-    <script>
-        UPLOADCARE_PUBLIC_KEY = '70eefb8af9cac417a6f2';
-        UPLOADCARE_TABS = '';
-        UPLOADCARE_EFFECTS = 'crop,rotate,mirror,flip,enhance,sharp,blur,grayscale,invert';
-        UPLOADCARE_IMAGES_ONLY = true;
-    </script>
-
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-    <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
-    <script>
-        uploadcare.registerTab('preview', uploadcareTabEffects)
-    </script>
-    {% endblock %} -->
 
 
 </head>
 
 <body>
-    {% block navbar %}
+
     {% include 'navbar.html'%}
-    {% endblock %}
 
     {% block content %}
     <h1 class="text-center">Welcome to Instagram </h1>

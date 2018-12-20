@@ -2,6 +2,7 @@
 {% block content %}
 <div class="container block">
     <div class="row">
+        <div class="col-md-2"></div>
         <div class="col-md-8">
             {% for img in images %}
             <div class="template-details">
@@ -28,14 +29,12 @@
                     </li>
                 </ul>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
+            
             {% empty %}
             <h2>Seems you have no images. Follow people and view their images. </h2>
             {% endfor %}
-        </div>            
+        </div> 
+        <div class="col-md-2"></div>           
     </div>
 </div>
 {% endblock %}

@@ -1,27 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navMain">
-    <div class="container">
-        <a class="navigation" href="/"><i class="fab fa-instagram"></i></a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 nav-search">
-                        <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'profile_search' %}">
-                            <input class="form-control my-2 my-sm-0 search-input" name="search" type="search"
-                                placeholder="Search Users" aria-label="Search">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link open-nav" href="{% url 'profile' username=user %}"><i class="fa fa-user">
-                            {{user}} </i></a>
-                </li>
-            </ul>
+<div id='nav-container'>
+    <div id='navbar'>
+        <div id='left'>
+            <a href='/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Instagram_simple_icon.svg/2000px-Instagram_simple_icon.svg.png'
+                    id='logo-icon'></a>
+            <a href='/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png'
+                    id='logo-name'></a>
+        </div> <!-- end div left -->
+        <div id='center'>
+            <!-- <input id="input-field" type="text" placeholder='Search' style="text-align: center"> -->
+            <form class="navbar-form navbar-left" action="{% url 'profile_search'%}">
+                <div class="form-group">
+                    <input id="input-field" type="text" placeholder='search' style="text-align: center" name="search">
+                </div> <!-- end div center -->
+            </form>
         </div>
-    </div>
-</nav>
+        <div id='right'>
+            <a class="mr-2" href="{% url 'profile' user %}"><img src='http://freeiconbox.com/icon/256/23228.png' class='nav-icon'></a>
+            <a class="mr-2" href="#"><img src='http://image.flaticon.com/icons/png/128/126/126471.png' class='nav-icon'></a>
+            <a class="mr-2" href="{% url 'profile_edit' %}"><img src='https://static.thenounproject.com/png/169707-200.png' class='nav-icon'></a>
+            <a href="{% url 'profile' username=user %}">{{user}}</a>
+        </div> <!-- end div right -->
+    </div> <!-- end div navbar -->
+</div> <!-- end div nav-container -->
+
+
+
+
+

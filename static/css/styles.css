@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    background: #fbfbfb;
+    font-family: 'Josefin Slab',
+    serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#nav-container {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 70px;
+    background: white;
+}
+
+#navbar {
+    min-width: 500px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 25px 0 25px 0;
+}
+
+#left {
+    float: left;
+    width: 200px;
+    height: 20px;
+}
+
+#center {
+    display: inline-block;
+    margin: 0 auto;
+    min-width: 600px;
+}
+
+#right {
+    float: right;
+    width: 200px;
+    height: 20px;
+}
+
+#input-field {
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    height: 25px;
+    padding-left: 5px;
+    /* background-image: url('https://addons.thunderbird.net/user-media/addon_icons/0/139-64.png?modified=1366045806') */
+}
+
+/* ::-webkit-input-placeholder input-field{
+   text-align: center;
+} */
+
+#logo-icon {
+    width: 50px;
+    padding-right: 20px;
+    padding-top: 3px;
+    border-right: 1px solid black;
+    float: left;
+}
+
+#logo-name {
+    float: left;
+    width: 120px;
+    padding-left: 15px;
+}
+
+.nav-icon {
+    float: right;
+    width: 26px;
+    margin-right: 20px;
+    /* padding: 5px; */
+}
+
+.profile-edit {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+
+.profile-images img {
+    width: 100%;
+    height: auto;
+}
+
+.photos {
+    padding: 5px;
+    height: 35%;
+    overflow: hidden;
+}
+
+.block {
+    padding-top: 6rem;
+}
+
+.template-block {
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+.template-list {
+    padding-left: 1rem;
+}
+
+.template-details {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    font-family: 'Oregano', cursive;
+}
+
+.template-details img {
+    width: 100%;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}

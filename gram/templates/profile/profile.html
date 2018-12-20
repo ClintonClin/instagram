@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row prof-section">
-                <div class="col-md-6 prof-image-section">
+                    <div class="col-md-6 prof-image-section rounded" ">
                     {% if profile_details.profile_image %}
-                    <img src="{{profile_details.profile_image_url}}" alt="profile photo">
+                    <img src="{{profile.profile_imageurl}}" alt="profile photo">
                     {% else %}
-                    <img src="/static/img/placeholder.png" alt="no-profile-photo">
+                    <img src="/static/img/placeholder.jpg" alt="no-profile-photo" width="200px" height="200px" style="border-radius:50%">
                     {% endif %}
                 </div>
                 <div class="col-md-6 profile-user">
@@ -20,12 +20,14 @@
                                 {{ profile.username }}
                             </div>
                         </li>
+                        <br>
+                        <br>
                         {% if profile.username == user.username %}
                         <li class="list-inline template-item">
                             <a href="{% url 'profile_edit' %}">Edit Profile</a>
                         </li>
                         <li class="list-inline template-item">
-                            <a data-toggle="modal" data-target="#settings"><i class="fas fa-cog"></i></a>
+                            <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog"></i></a>
                         </li>
                         {% else %}
                         <li class="list-inline template-item">
@@ -37,16 +39,19 @@
                         <li class="list-inline template-item">
                             <span class="font-weight-bold">{{images|length}} </span> Posts
                         </li>
+                        <br>
                         <li class="list-inline template-item">
                             <span class="font-weight-bold">0 </span> Followers
                         </li>
+                        <br>
                         <li class="list-inline template-item">
                             <span class="font-weight-bold">0 </span> Following
                         </li>
                     </ul>
+                    br
                     <p>{{profile_details.bio|safe}}</p>
                     {% if profile.username == user.username %}
-                    <p><a href="{% url 'image_upload' %}">Upload Image</a></p>
+                    <p><a href="{% url 'pic_upload' %}">Upload Image</a></p>
                     {% endif %}
                 </div>
             </div>
@@ -60,10 +65,35 @@
         </div>
         {% empty %}
         <div class="col-md-12">
-            <h2>Upload photos</h2>
+            <h2>Uploaded Photos</h2>
         </div>
         {% endfor %}
     </div>
+
+
+
+
+    {% for photo in photos %}
+    <div class="col-md-4 photos">
+        <img src="{{photo.photo.cdn_url}}" alt="photo">
+    </div>
+    {% empty %}
+    <div class="col-md-12">
+        <h2>Uploaded Photos</h2>
+    </div>
+    {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
+</div>
+<div>
+    <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
 </div>
 <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
